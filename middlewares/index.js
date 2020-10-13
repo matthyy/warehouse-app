@@ -8,7 +8,6 @@ const apiAppStore = "https://sensortower.com/api/ios/rankings/get_category_ranki
 
 exports.getTop100Games = async () => {
     const [bestAndroidGames, bestIosGames] = await Promise.all(getAndroidAndIosGames())
-    console.log('laa', bestAndroidGames, bestIosGames)
     const hashMapOfDownloadByGames = new Map()
 
     buildHasMap(bestAndroidGames.data || [], hashMapOfDownloadByGames)
@@ -47,7 +46,7 @@ const buildHasMap = (gamesOfGames, hashMap) => {
     }
 }
 
-exports.getAndroidAndIosGames = () => {
+const getAndroidAndIosGames = () => {
     const promiseAndroid = axios.get(apiAndroid).catch((e) => {
         console.log(`error when fetching android results ${JSON.stringify(e)}`)
         return Promise.resolve([])

@@ -60,12 +60,13 @@ To me, we could improve the application from different point of view.
 The first improvements would be on the application from business point of view:
 - some endpoints are missing to fetch the data according to different filters by date of publication, by kinds of games, whether it is publish or not, by app, by store, by downloads. Therefore, we should try to collect more information on those games
 - the search endpoint could be enhanced : users should be able to search on different fields.
+- we may want to gather data for one game accross different platforms. For instance, we would like to know the number of downloads accross all platforms. The same for the price and other features. Therefore, we would be able to rank apps by number of downloads. 
 - as data is very key, we should prevent any user from getting access to it. An access system with passport js for example should be added to have an access control over data. Roles may be needed to prevent certain users from updating or inserting data.
-- to be able for a game to see the number of downloads over time, be able to compare multiple games   
-- a system to collect new games published. 
+- data should be fetch every day to update information on games, for example the number of downloads over time, money spend, raking over time   
+- a system to collect for new games published, too. 
 
 Improvements could be make from the dev experience/technique point of view: 
-- we could improve the way of fetching and storing data. Indeed the goal is to get data for all games. Therefore every day a task should be triggered to fetch data from different platforms. Those games should be saved into the database based on whether they already existed or not or update in new information have been added. A lot of tasks will be needed to perform such system. We can image a queue system (like rabbitMQ) to launch the different jobs at different times to minimize CPU usage with a retry system in case it failed.
+- we could improve the way of fetching and storing data. Indeed, the goal is to get data for all games. Therefore every day a task should be triggered to fetch data from different platforms. Those games should be saved into the database based on whether they already existed or not or update in new information have been added. A lot of tasks will be needed to perform such system. We can image a queue system (like rabbitMQ) to launch the different jobs at different times to minimize CPU usage with a retry system in case it failed.
 - modelizing games will be necessary as a lot of information will be fetched and should be organized in different tables.
 - to enhance the dev experience, a docker in local could be added with a node image and database image depending on the choice
 - coverage of the code should be added with nyc for instance to make sure key modules are tested.
@@ -78,9 +79,9 @@ Improvements could be make from the dev experience/technique point of view:
  
 Improvements could be added on the infrastructure
 - a data back up system should be settled to avoid data lost or we should be able to restore a data base at a given date.  
-- in order to test, different instances should be available. For exemple, we could have one dev instance, staging and preprod instances
+- in order to test, different instances should be available. For example, we could have one dev instance, staging and preprod instances
 - a kibana or collector of logs should be setup to be monitored the app in production: response time, status code, number of requests, status code of external api, etc...  
-- pipelines or continous integration system should be setup in order to run units tests, integration tests, eslint, genreate swagger, production build if code is compiled. 
+- pipelines or continous integration system should be setup in order to run units tests, integration tests, eslint, generate swagger, production build if code is compiled. 
 - a rollback system of the application when going to production
 
 #### Question 2
@@ -113,6 +114,6 @@ Developers should also include technical tasks at the very beginning such as :
 - thinking how they will be able to test in different environment
 
 Once those questions are addressed and priorities set, developers can start developing features.
-Project owner will see how it evolves but it is also important to show every month for example to the end users how it evolves to get their feedback.  
+Project owner will see how it evolves but it is also important to show every month for example to the end users how it evolves to get their feedbacks.  
 
 
